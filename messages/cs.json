@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "title": "My Wildiary App",
+    "description": "Aplikace je určena pro týmové zapisování a sdílení pozorování z přírody. Uživatelé mohou zaznamenávat údaje z terénu, doplňovat je o fotografie a popisy a následně je zobrazovat na interaktivní mapě.",
+    "keywords": [
+      "webová aplikace",
+      "deník přírody",
+      "přírodní deník",
+      "pozorování přírody",
+      "deník pozorování"
+    ],
+    "openGraph-title": "My Wildiary App",
+    "openGraph-description": "Aplikace je určena pro týmové zapisování a sdílení pozorování z přírody. Uživatelé mohou zaznamenávat údaje z terénu, doplňovat je o fotografie a popisy a následně je zobrazovat na interaktivní mapě.",
+    "openGraph-alt": "Náhled aplikace pro zapisování pozorování v přírodě.",
+    "twitter-title": "Náhled aplikace pro zapisování pozorování v přírodě.",
+    "twitter-description": "Náhled aplikace pro zapisování pozorování v přírodě."
+  },
+  "nav": {},
+  "hero": { "title": "My Wildiary App" }
+}

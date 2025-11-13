@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "title": "My Wildiary App",
+    "description": "The app is designed for team-based recording and sharing of nature observations. Users can log field data, enrich it with photos and descriptions, and view everything on an interactive map.",
+    "keywords": [
+      "web application",
+      "nature journal",
+      "wildlife diary",
+      "nature observations",
+      "field notes"
+    ],
+    "openGraph-title": "My Wildiary App",
+    "openGraph-description": "The app is designed for team-based recording and sharing of nature observations. Users can log field data, enrich it with photos and descriptions, and view everything on an interactive map.",
+    "openGraph-alt": "Preview of the app for recording observations in nature.",
+    "twitter-title": "Preview of the app for recording nature observations.",
+    "twitter-description": "Preview of the app for recording nature observations."
+  },
+  "nav": {},
+  "hero": { "title": "My Wildiary App" }
+}
