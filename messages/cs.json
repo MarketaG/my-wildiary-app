@@ -15,6 +15,10 @@
     "twitter-title": "Náhled aplikace pro zapisování pozorování v přírodě.",
     "twitter-description": "Náhled aplikace pro zapisování pozorování v přírodě."
   },
-  "nav": {},
+  "nav": { "btn": "Odhlásit se" },
+  "sign-in": {
+    "sign-in": "Přihlaste se",
+    "label": "Přihlaste se pro přístup ke svému účtu"
+  },
   "welcome": { "title": "My Wildiary App/cs" }
 }

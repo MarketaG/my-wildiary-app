@@ -15,6 +15,10 @@
     "twitter-title": "Preview of the app for recording nature observations.",
     "twitter-description": "Preview of the app for recording nature observations."
   },
-  "nav": {},
+  "nav": { "btn": "Log out" },
+  "sign-in": {
+    "sign-in": "Sign In",
+    "label": "Sign in to access your account"
+  },
   "welcome": { "title": "My Wildiary App/en" }
 }
