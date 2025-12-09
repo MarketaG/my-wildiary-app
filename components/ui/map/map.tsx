@@ -1,8 +1,8 @@
 "use client";
+
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
-import { LatLngTuple } from "leaflet";
+import L, { LatLngTuple } from "leaflet";
 import { MapIcon } from "@heroicons/react/24/solid";
 import { ReactNode } from "react";
 
@@ -11,19 +11,18 @@ export type MapMarker = {
   popup: ReactNode;
 };
 
-const customIcon = new Icon({
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+const greenIcon = L.icon({
+  iconUrl: "/leaf-green.png",
+  shadowUrl: "/leaf-shadow.png",
+  iconSize: [38, 95],
+  shadowSize: [50, 64],
+  iconAnchor: [22, 94],
+  shadowAnchor: [4, 62],
+  popupAnchor: [-3, -76],
 });
 
 const markers: MapMarker[] = [
-  //static test data
+  // test data
   {
     coords: [50.0755, 14.4378],
     popup: (
@@ -66,7 +65,7 @@ export default function Map() {
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
       {markers.map((marker, idx) => (
-        <Marker key={idx} position={marker.coords} icon={customIcon}>
+        <Marker key={idx} position={marker.coords} icon={greenIcon}>
           <Popup>{marker.popup}</Popup>
         </Marker>
       ))}
