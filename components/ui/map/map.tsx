@@ -3,8 +3,8 @@
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L, { LatLngTuple } from "leaflet";
-import { MapIcon } from "@heroicons/react/24/solid";
 import { ReactNode } from "react";
+import { MinimalObservation } from "@/lib/types";
 
 export type MapMarker = {
   coords: LatLngTuple;
@@ -21,38 +21,11 @@ const greenIcon = L.icon({
   popupAnchor: [-3, -76],
 });
 
-const markers: MapMarker[] = [
-  // test data
-  {
-    coords: [50.0755, 14.4378],
-    popup: (
-      <div className="flex items-center gap-2">
-        <MapIcon className="w-5 h-5 text-green-500" />
-        <span>Observation: Fox in Prague</span>
-      </div>
-    ),
-  },
-  {
-    coords: [49.1951, 16.6068],
-    popup: (
-      <div className="flex items-center gap-2">
-        <MapIcon className="w-5 h-5 text-green-500" />
-        <span>Observation: Deer in Brno</span>
-      </div>
-    ),
-  },
-  {
-    coords: [49.8175, 15.473],
-    popup: (
-      <div className="flex items-center gap-2">
-        <MapIcon className="w-5 h-5 text-green-500" />
-        <span>Observation: Beaver in Vysočina</span>
-      </div>
-    ),
-  },
-];
-
-export default function Map() {
+export default function Map({
+  observations,
+}: {
+  observations: MinimalObservation[];
+}) {
   const center: LatLngTuple = [49.8175, 15.473];
 
   return (
@@ -64,9 +37,35 @@ export default function Map() {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      {markers.map((marker, idx) => (
-        <Marker key={idx} position={marker.coords} icon={greenIcon}>
-          <Popup>{marker.popup}</Popup>
+      {observations.map((o) => (
+        <Marker key={o._id} position={o.coords} icon={greenIcon}>
+          <Popup>
+            <div style={{ maxWidth: "200px", lineHeight: "1.4" }}>
+              <h3
+                style={{
+                  fontSize: "16px",
+                  marginBottom: "4px",
+                  fontWeight: "600",
+                }}
+              >
+                {o.title}
+              </h3>
+
+              <p
+                style={{ fontSize: "14px", margin: "0 0 6px 0", color: "#666" }}
+              >
+                {o.animal?.commonName}
+              </p>
+
+              {o.description && (
+                <p style={{ fontSize: "13px", margin: 0 }}>
+                  {o.description.length > 120
+                    ? o.description.slice(0, 120) + "…"
+                    : o.description}
+                </p>
+              )}
+            </div>
+          </Popup>
         </Marker>
       ))}
     </MapContainer>

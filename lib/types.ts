@@ -16,3 +16,13 @@ export type Observation = {
     name: string;
   };
 };
+
+export type MinimalObservation = {
+  _id: string;
+  title: string;
+  description: string;
+  coords: [number, number];
+  animal: {
+    commonName: string;
+  };
+};
