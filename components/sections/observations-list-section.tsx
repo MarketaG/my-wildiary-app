@@ -1,15 +1,84 @@
-"use client";
+import Link from "next/link";
+import { dayjs, applyLocale } from "@/lib/dayjs";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import type { Observation } from "@/lib/types";
+import {
+  MapPinIcon,
+  CalendarDaysIcon,
+  UserIcon,
+  SunIcon,
+} from "@heroicons/react/24/solid";
 
-import { useTranslations } from "next-intl";
+export type ObservationListSectionProps = {
+  observation: Observation;
+  locale: string;
+};
 
 /**
- * HOME SECTION
+ * OBSERVATION LIST SECTION
  */
-export default function ObservationsListSection() {
-  const t = useTranslations("welcome");
+export default function ObservationListSection({
+  observation,
+  locale,
+}: ObservationListSectionProps) {
+  applyLocale(locale);
+
   return (
-    <section className="absolute top-[64px] left-0 z-20 h-full w-[380px] bg-white/90 backdrop-blur-md shadow-xl">
-      <h2 className="text-black">{t("title")}</h2>
-    </section>
+    <Link href={`/observations/${observation._id}`}>
+      <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+        <CardHeader>
+          <div className="flex justify-between items-start mb-2">
+            <CardTitle className="text-xl">{observation.title}</CardTitle>
+
+            {observation.animal && (
+              <Badge variant="secondary">{observation.animal.commonName}</Badge>
+            )}
+          </div>
+
+          <CardDescription className="line-clamp-2">
+            {observation.description}
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          {observation.image_url && (
+            <img
+              src={observation.image_url}
+              alt={observation.title}
+              className="w-full h-48 object-cover rounded-md mb-4"
+            />
+          )}
+
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <div className="flex items-center gap-1">
+              <MapPinIcon className="h-4 w-4" />
+              <span>{observation.habitat}</span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              <SunIcon className="h-4 w-4" />
+              <span>{observation.weather}</span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              <UserIcon className="h-4 w-4" />
+              <span>{observation.user?.name ?? "Unknown"}</span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              <CalendarDaysIcon className="h-4 w-4" />
+              <span>{dayjs(observation.created_at).format("LL")}</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   );
 }
