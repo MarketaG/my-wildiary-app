@@ -22,7 +22,7 @@ In the project root, create a file: **`.env.local`**
 and fill in the required values:
 
 MONGODB_URI="your-mongodb-uri-here"
-NEXT_PUBLIC_BASE_URL=ttp://localhost:3000
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
 **_Note:_**
 _You can obtain `MONGODB_URI` from MongoDB Atlas.
