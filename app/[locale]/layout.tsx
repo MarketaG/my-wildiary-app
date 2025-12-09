@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { Navigation } from "@/components/ui/nav/navigation";
 
 import "../globals.css";
 
@@ -98,7 +99,14 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <div className="relative h-screen w-screen overflow-hidden">
+              <div className="z-30 relative">
+                <Navigation />
+              </div>
+              {children}
+            </div>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

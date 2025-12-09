@@ -1,8 +1,7 @@
-import WelcomeSection from "@/components/sections/welcome-section";
-
+import HomeSection from "@/components/sections/home-section";
 /**
  * HOME PAGE
  */
 export default function HomePage() {
-  return <WelcomeSection />;
+  return <HomeSection />;
 }
