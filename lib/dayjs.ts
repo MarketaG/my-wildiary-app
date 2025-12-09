@@ -3,9 +3,9 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 
 dayjs.extend(localizedFormat);
 
-export function applyLocale(locale: string) {
+export async function applyLocale(locale: string) {
   try {
-    require(`dayjs/locale/${locale}.js`);
+    await import(`dayjs/locale/${locale}.js`);
     dayjs.locale(locale);
   } catch {
     dayjs.locale("en");

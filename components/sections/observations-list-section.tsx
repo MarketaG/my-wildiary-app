@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { dayjs, applyLocale } from "@/lib/dayjs";
 import {
   Card,
@@ -49,7 +50,7 @@ export default function ObservationListSection({
 
         <CardContent>
           {observation.image_url && (
-            <img
+            <Image
               src={observation.image_url}
               alt={observation.title}
               className="w-full h-48 object-cover rounded-md mb-4"

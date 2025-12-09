@@ -52,9 +52,12 @@ export async function GET() {
         headers: { "Content-Type": "application/json" },
       }
     );
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.error("Error fetching minimal observations:", e);
-    return new Response(JSON.stringify({ success: false, error: e.message }), {
+
+    const message = e instanceof Error ? e.message : "Unknown error";
+
+    return new Response(JSON.stringify({ success: false, error: message }), {
       status: 500,
     });
   }
