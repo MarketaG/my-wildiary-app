@@ -1,8 +1,4 @@
-<!-- prettier-ignore -->
-​^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-​////   /\/\    MY WILDIARY APP — Explore the Wild   ////
-​||||  /    \                                                  ||||
-​~~~~ /      \~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# MY WILDIARY APP — Explore the Wild
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
@@ -25,7 +21,7 @@ bun install
 In the project root, create a file: **`.env.local`**
 and fill in the required values:
 
-MONGODB_URI="mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/?retryWrites=true&w=majority&appName=<app-name>"
+MONGODB_URI="your-mongodb-uri-here"
 NEXT_PUBLIC_BASE_URL=ttp://localhost:3000
 
 **_Note:_**
