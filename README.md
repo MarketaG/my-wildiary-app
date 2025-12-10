@@ -21,15 +21,25 @@ bun install
 In the project root, create a file: **`.env.local`**
 and fill in the required values:
 
+```
 MONGODB_URI="your-mongodb-uri-here"
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
 
 **_Note:_**
 _You can obtain `MONGODB_URI` from MongoDB Atlas.
 You must have an Atlas account, create your own cluster and user,
 and then copy the connection string from the Connect → Drivers section._
 
-### 3. Run the development server
+### 3. Seed database
+
+```bash
+npm run seed
+```
+
+This command populates the database with default data. Make sure you have correctly filled in MONGODB_URI in .env.local and that the database is accessible.
+
+### 4. Run the development server
 
 ```bash
 npm run dev
@@ -41,7 +51,7 @@ pnpm dev
 bun dev
 ```
 
-### 4. Open the application
+### 5. Open the application
 
 Visit:
 
