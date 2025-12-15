@@ -1,5 +1,6 @@
 import NavLink from "@/components/ui/nav/nav-link";
 import NavIcon from "@/components/ui/nav/nav-icon";
+import { SearchBar } from "@/components/ui/nav/searchbar";
 import { HeaderProps } from "@/lib/types";
 import {
   BookOpenIcon,
@@ -46,12 +47,7 @@ export default function Header({
 
         {/* center - search bar */}
         <div className="relative w-1/3 max-w-md">
-          <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white" />
-          <input
-            type="text"
-            placeholder={t("search")}
-            className="w-full pl-10 pr-4 py-2 rounded-md focus:outline-none bg-emerald-700 text-white placeholder-emerald-200 hover:bg-emerald-600 transition-colors"
-          />
+          <SearchBar placeholder={t("search")} icon={MagnifyingGlassIcon} />
         </div>
 
         {/* right - create button + translation */}

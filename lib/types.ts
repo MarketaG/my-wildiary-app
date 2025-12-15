@@ -29,6 +29,15 @@ export type NavIconProps = {
   className?: string;
 };
 
+export type SearchBarProps = {
+  placeholder: string;
+  icon?: React.ElementType;
+  value?: string;
+  onChange?: (value: string) => void;
+  className?: string;
+  name?: string;
+};
+
 /**
  * =========================
  * SECTIONS
