@@ -15,7 +15,17 @@
     "twitter-title": "Náhled aplikace pro zapisování pozorování v přírodě.",
     "twitter-description": "Náhled aplikace pro zapisování pozorování v přírodě."
   },
-  "nav": { "btn": "Odhlásit se" },
+  "nav": {
+    "btn": "Odhlásit se",
+    "home": "Domů",
+    "observations-list": "Seznam pozorování",
+    "favorites": "Oblíbené",
+    "theme-light": "Přepnout na světlý režim",
+    "theme-dark": "Přepnout na tmavý režim",
+    "open-menu": "Otevřít menu",
+    "close-menu": "Zavřít menu",
+    "search": "Hledat pozorování…"
+  },
   "sign-in": {
     "sign-in": "Přihlaste se",
     "label": "Přihlaste se pro přístup ke svému účtu"

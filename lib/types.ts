@@ -1,3 +1,40 @@
+/**
+ * =========================
+ * NAVIGATION
+ * =========================
+ */
+
+export type HeaderProps = {
+  t: (key: string) => string;
+  locale: string;
+  theme?: string;
+  isActive: (href: string) => boolean;
+  switchLanguage: (locale: "cs" | "en") => void;
+  toggleTheme: () => void;
+};
+
+export type NavLinkProps = {
+  href: string;
+  label: string;
+  active?: boolean;
+  className?: string;
+};
+
+export type NavIconProps = {
+  children?: React.ReactNode;
+  icon: React.ElementType;
+  href?: string;
+  tooltip: string;
+  onClick?: () => void;
+  className?: string;
+};
+
+/**
+ * =========================
+ * SECTIONS
+ * =========================
+ */
+
 export type Observation = {
   _id: string;
   title: string;
@@ -26,3 +63,9 @@ export type MinimalObservation = {
     commonName: string;
   };
 };
+
+/**
+ * =========================
+ * UI
+ * =========================
+ */

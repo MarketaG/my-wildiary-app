@@ -15,7 +15,17 @@
     "twitter-title": "Preview of the app for recording nature observations.",
     "twitter-description": "Preview of the app for recording nature observations."
   },
-  "nav": { "btn": "Log out" },
+  "nav": {
+    "btn": "Log out",
+    "home": "Home",
+    "observations-list": "Observations List",
+    "favorites": "Favorites",
+    "theme-light": "Switch to light mode",
+    "theme-dark": "Switch to dark mode",
+    "open-menu": "Open menu",
+    "close-menu": "Close menu",
+    "search": "Search observations…"
+  },
   "sign-in": {
     "sign-in": "Sign In",
     "label": "Sign in to access your account"
