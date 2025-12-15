@@ -24,7 +24,8 @@
     "theme-dark": "Switch to dark mode",
     "open-menu": "Open menu",
     "close-menu": "Close menu",
-    "search": "Search observations…"
+    "search": "Search observations…",
+    "create": "New observation"
   },
   "sign-in": {
     "sign-in": "Sign In",

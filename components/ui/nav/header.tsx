@@ -1,6 +1,7 @@
 import NavLink from "@/components/ui/nav/nav-link";
 import NavIcon from "@/components/ui/nav/nav-icon";
 import { SearchBar } from "@/components/ui/nav/searchbar";
+import { CreateObservation } from "@/components/CreateObservation";
 import { HeaderProps } from "@/lib/types";
 import {
   BookOpenIcon,
@@ -52,10 +53,8 @@ export default function Header({
 
         {/* right - create button + translation */}
         <div className="flex items-center justify-center gap-4">
-          <button className="flex items-center justify-center bg-emerald-700 px-4 py-2 rounded-md hover:bg-emerald-600 transition-colors">
-            <PlusIcon className="w-5 h-5 mr-2 text-white" />
-            Create
-          </button>
+          <CreateObservation label={t("create")} />
+
           <NavIcon
             icon={GlobeAltIcon}
             tooltip={
