@@ -3,10 +3,7 @@ import { applyLocale, dayjs } from "@/lib/dayjs";
 import ObservationDetailSection from "@/components/sections/observation-detail-section";
 
 type ObservationPageProps = {
-  params: {
-    locale: string;
-    id: string;
-  };
+  params: Promise<{ locale: string; id: string }>;
 };
 
 /**

@@ -1,4 +1,5 @@
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ export default function ObservationDetailSection({
                 Observation Not Found
               </h2>
               <p className="text-stone-600 mb-4">
-                The observation you're looking for doesn't exist.
+                The observation you&apos;re looking for doesn&apos;t exist.
               </p>
               <Link href="/observations">
                 <Button className="bg-green-700 hover:bg-green-800 text-white">
@@ -77,9 +78,11 @@ export default function ObservationDetailSection({
         <div className="grid gap-6 md:grid-cols-2">
           <Card className="md:col-span-2 border-stone-200/60 overflow-hidden nature-shadow-lg">
             <CardContent className="p-0">
-              <img
-                src={observation.image_url}
-                alt={observation.animal?.commonName}
+              <Image
+                src={observation.image_url || "/default.png"}
+                width={500}
+                height={500}
+                alt={observation.animal?.commonName || "Observation image"}
                 className="w-full h-96 object-cover"
               />
             </CardContent>
