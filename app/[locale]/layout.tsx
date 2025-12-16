@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Navigation } from "@/components/sections/navigation";
+import { Toaster } from "react-hot-toast";
 
 import "../globals.css";
 
@@ -102,6 +103,7 @@ export default async function RootLayout({
           <NextIntlClientProvider>
             <div className="relative h-screen w-screen overflow-hidden flex flex-col">
               <div className="z-30 relative">
+                <Toaster />
                 <Navigation />
               </div>
               {children}
