@@ -1,10 +1,12 @@
 "use client";
 
+import { Link } from "@/i18n/navigation";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L, { LatLngTuple } from "leaflet";
 import { ReactNode } from "react";
 import { MinimalObservation } from "@/lib/types";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export type MapMarker = {
   coords: LatLngTuple;
@@ -64,6 +66,13 @@ export default function Map({
                     : o.description}
                 </p>
               )}
+              <p className="pt-2">
+                <Link href={`/observations/${o._id}`}>
+                  <span className="flex items-center">
+                    View Details <ArrowRightIcon className="w-3 h-3 ml-2" />
+                  </span>
+                </Link>
+              </p>
             </div>
           </Popup>
         </Marker>

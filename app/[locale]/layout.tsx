@@ -100,7 +100,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider>
-            <div className="relative h-screen w-screen overflow-hidden">
+            <div className="relative h-screen w-screen overflow-hidden flex flex-col">
               <div className="z-30 relative">
                 <Navigation />
               </div>

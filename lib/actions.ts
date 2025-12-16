@@ -66,3 +66,39 @@ export async function getMinimalObservations(): Promise<MinimalObservation[]> {
     return [];
   }
 }
+
+export async function getObservation(id: string): Promise<Observation | null> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+    if (!baseUrl) {
+      throw new Error("Missing NEXT_PUBLIC_BASE_URL in environment variables");
+    }
+
+    if (!id) {
+      throw new Error("Missing observation id");
+    }
+
+    const res = await fetch(`${baseUrl}/api/observations/${id}`, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch observation: ${res.status} ${res.statusText}`
+      );
+    }
+
+    const data = await res.json();
+
+    if (!data.success) {
+      throw new Error(data.error || "API returned unknown error");
+    }
+
+    return data.observation as Observation;
+  } catch (err) {
+    console.error("getObservation error:", err);
+    return null;
+  }
+}

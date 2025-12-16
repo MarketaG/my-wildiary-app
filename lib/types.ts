@@ -52,6 +52,8 @@ export type Observation = {
   weather?: string;
   created_at: string;
   image_url?: string;
+  latitude: number;
+  longitude: number;
   animal?: {
     _id: string;
     commonName: string;

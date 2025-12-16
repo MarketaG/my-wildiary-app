@@ -7,7 +7,6 @@ import {
   BookOpenIcon,
   GlobeAltIcon,
   MagnifyingGlassIcon,
-  PlusIcon,
   SunIcon,
   MoonIcon,
 } from "@heroicons/react/24/solid";
