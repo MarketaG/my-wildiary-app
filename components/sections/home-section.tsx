@@ -1,7 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { SearchBar } from "@/components/ui/nav/searchbar";
+import { CreateObservation } from "@/components/ui/observation/create-observation";
 import { MinimalObservation } from "@/lib/types";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 const Map = dynamic(() => import("../ui/map/map"), {
   ssr: false,
@@ -16,9 +19,21 @@ export default function HomeSection({
   observations: MinimalObservation[];
 }) {
   return (
-    <main>
-      <div className="absolute top-[64px] left-0 right-0 bottom-0 z-0">
+    <main className="relative h-full">
+      <div className="relative h-full">
         <Map observations={observations} />
+
+        {/* overlay */}
+        <div className="pointer-events-none absolute inset-x-0 top-4 z-[1000] flex justify-center">
+          <div className="pointer-events-auto flex items-center gap-3 h-10">
+            <SearchBar
+              placeholder="Search..."
+              icon={MagnifyingGlassIcon}
+              className="w-56"
+            />
+            <CreateObservation label="Create" />
+          </div>
+        </div>
       </div>
     </main>
   );

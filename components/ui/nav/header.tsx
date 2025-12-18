@@ -1,12 +1,9 @@
 import NavLink from "@/components/ui/nav/nav-link";
 import NavIcon from "@/components/ui/nav/nav-icon";
-import { SearchBar } from "@/components/ui/nav/searchbar";
-import { CreateObservation } from "@/components/CreateObservation";
 import { HeaderProps } from "@/lib/types";
 import {
   BookOpenIcon,
   GlobeAltIcon,
-  MagnifyingGlassIcon,
   SunIcon,
   MoonIcon,
 } from "@heroicons/react/24/solid";
@@ -45,15 +42,8 @@ export default function Header({
           </nav>
         </div>
 
-        {/* center - search bar */}
-        <div className="relative w-1/3 max-w-md">
-          <SearchBar placeholder={t("search")} icon={MagnifyingGlassIcon} />
-        </div>
-
         {/* right - create button + translation */}
         <div className="flex items-center justify-center gap-4">
-          <CreateObservation label={t("create")} />
-
           <NavIcon
             icon={GlobeAltIcon}
             tooltip={

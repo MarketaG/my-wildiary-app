@@ -7,6 +7,7 @@ import L, { LatLngTuple } from "leaflet";
 import { ReactNode } from "react";
 import { MinimalObservation } from "@/lib/types";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import "leaflet/dist/leaflet.css";
 
 export type MapMarker = {
   coords: LatLngTuple;
@@ -31,12 +32,7 @@ export default function Map({
   const center: LatLngTuple = [49.8175, 15.473];
 
   return (
-    <MapContainer
-      center={center}
-      zoom={8}
-      style={{ height: "100%", width: "100%" }}
-      className="z-0"
-    >
+    <MapContainer center={center} zoom={8} className="h-full w-full z-0">
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
       {observations.map((o) => (

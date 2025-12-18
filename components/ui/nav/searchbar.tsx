@@ -16,7 +16,7 @@ export function SearchBar({
   name,
 }: SearchBarProps) {
   return (
-    <div className={cn("relative w-full", className)}>
+    <div className={cn("w-full", className)}>
       {Icon && (
         <Icon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none" />
       )}
@@ -29,7 +29,7 @@ export function SearchBar({
         placeholder={placeholder}
         aria-label={placeholder}
         className={cn(
-          "w-full pl-10 pr-4 py-2 rounded-md",
+          "h-10 w-full pl-10 pr-4 rounded-md",
           "bg-emerald-700 text-white placeholder-emerald-200",
           "hover:bg-emerald-600 transition-colors",
           "focus:outline-none"
