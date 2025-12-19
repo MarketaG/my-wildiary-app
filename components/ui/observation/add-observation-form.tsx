@@ -11,7 +11,7 @@ import { fetchAnimals } from "@/lib/fetch/animals";
 import type { AnimalOption, User } from "@/lib/types";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import { getNowForInput } from "@/lib/dayjs.client";
+import { getNowForInput } from "@/lib/dayjs";
 
 type AddObservationForm = {
   onSuccess: () => void;

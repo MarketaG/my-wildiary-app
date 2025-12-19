@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { dayjs, applyLocale } from "@/lib/dayjs.client";
+import { formatDate } from "@/lib/dayjs";
 import {
   Card,
   CardContent,
@@ -29,8 +29,6 @@ export default function ObservationListSection({
   observation,
   locale,
 }: ObservationListSectionProps) {
-  applyLocale(locale);
-
   return (
     <Link href={`/observations/${observation._id}`}>
       <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
@@ -75,7 +73,7 @@ export default function ObservationListSection({
 
             <div className="flex items-center gap-1">
               <CalendarDaysIcon className="h-4 w-4" />
-              <span>{dayjs(observation.createdAt).format("LL")}</span>
+              <span>{formatDate(observation.createdAt, locale)}</span>
             </div>
           </div>
         </CardContent>
