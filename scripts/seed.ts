@@ -18,11 +18,33 @@ async function seed() {
   console.log("Inserting seed data...");
 
   // --- Users
-  const users = Array.from({ length: 5 }).map((_, i) => ({
-    _id: new ObjectId(),
-    name: `User ${i + 1}`,
-    password: `hashed-password-${i + 1}`,
-  }));
+  const users = [
+    {
+      _id: new ObjectId("64f000000000000000000001"),
+      name: "Demo User",
+      password: "hashed-password-demo",
+    },
+    {
+      _id: new ObjectId("64f000000000000000000002"),
+      name: "User 2",
+      password: "hashed-password-2",
+    },
+    {
+      _id: new ObjectId("64f000000000000000000003"),
+      name: "User 3",
+      password: "hashed-password-3",
+    },
+    {
+      _id: new ObjectId("64f000000000000000000004"),
+      name: "User 4",
+      password: "hashed-password-4",
+    },
+    {
+      _id: new ObjectId("64f000000000000000000005"),
+      name: "User 5",
+      password: "hashed-password-5",
+    },
+  ];
 
   await db.collection("Users").insertMany(users);
 

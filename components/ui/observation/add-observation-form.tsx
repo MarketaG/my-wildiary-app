@@ -98,11 +98,11 @@ export function AddObservationForm({
   };
 
   const users: User[] = [
-    { _id: "69388173f2d225d654299916", name: "User 1" },
-    { _id: "69388173f2d225d654299917", name: "User 2" },
-    { _id: "69388173f2d225d654299918", name: "User 3" },
-    { _id: "69388173f2d225d654299919", name: "User 4" },
-    { _id: "69388173f2d225d65429991a", name: "User 5" },
+    { _id: "64f000000000000000000001", name: "Demo User" },
+    { _id: "64f000000000000000000002", name: "User 2" },
+    { _id: "64f000000000000000000003", name: "User 3" },
+    { _id: "64f000000000000000000004", name: "User 4" },
+    { _id: "64f000000000000000000005", name: "User 5" },
   ];
 
   return (

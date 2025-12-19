@@ -16,6 +16,4 @@ export async function initDb() {
 
   await db.collection("Observations").createIndex({ animalId: 1 });
   await db.collection("Observations").createIndex({ userId: 1 });
-
-  await db.collection("Users").createIndex({ name: 1 }, { unique: true });
 }
