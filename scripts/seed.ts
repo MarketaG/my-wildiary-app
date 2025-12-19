@@ -1,11 +1,14 @@
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
-import { ObjectId } from "mongodb";
 import clientPromise from "../db/mongodb";
+import { initDb } from "../db/initDb";
+import { ObjectId } from "mongodb";
 
 async function seed() {
   const client = await clientPromise;
   const db = client.db("mydatabase");
+
+  await initDb();
 
   console.log("Deleting old data...");
   await db.collection("Users").deleteMany({});
@@ -67,7 +70,7 @@ async function seed() {
   // --- Observations
   const observationTitles = [
     "Fox spotted in the field",
-    "Bear hunting by the river",
+    "Lynx hunting by the river",
     "Lynx in rocky terrain",
     "Beaver building a dam",
     "Deer in the morning mist",
