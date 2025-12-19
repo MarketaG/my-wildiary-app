@@ -4,7 +4,11 @@ import { NextResponse } from "next/server";
 import clientPromise from "@/db/mongodb";
 import { ObjectId } from "mongodb";
 import { contactFormSchema } from "@/lib/validation/contactForm.schema";
+import { ZodError } from "zod";
 
+/* =========================
+   GET
+========================= */
 export async function GET() {
   try {
     const client = await clientPromise;
@@ -22,7 +26,6 @@ export async function GET() {
           },
         },
         { $unwind: "$animal" },
-
         {
           $lookup: {
             from: "Users",
@@ -32,7 +35,6 @@ export async function GET() {
           },
         },
         { $unwind: "$user" },
-
         {
           $project: {
             _id: 1,
@@ -51,31 +53,25 @@ export async function GET() {
       ])
       .toArray();
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        observations,
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
+    return NextResponse.json({ success: true, observations }, { status: 200 });
+  } catch (error: unknown) {
+    console.error("Error fetching observations:", error);
+
+    const message = error instanceof Error ? error.message : "Unknown error";
+
+    return NextResponse.json(
+      { success: false, error: message },
+      { status: 500 }
     );
-  } catch (e: unknown) {
-    console.error("Error fetching observations:", e);
-
-    const message = e instanceof Error ? e.message : "Unknown error";
-
-    return new Response(JSON.stringify({ success: false, error: message }), {
-      status: 500,
-    });
   }
 }
 
+/* =========================
+   POST
+========================= */
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-
     const data = contactFormSchema.parse(body);
 
     const client = await clientPromise;
@@ -90,10 +86,6 @@ export async function POST(req: Request) {
         diet: data.newAnimal.diet ?? null,
         conservationStatus: data.newAnimal.conservationStatus ?? null,
       });
-
-      if (!animalInsert.insertedId) {
-        throw new Error("Failed to create animal");
-      }
 
       animalId = animalInsert.insertedId;
     } else if (data.animalId) {
@@ -114,33 +106,25 @@ export async function POST(req: Request) {
       longitude: data.longitude,
       imageUrl: data.imageUrl ?? null,
       createdAt: new Date(data.date),
-
       animalId,
       userId: data.userId ? new ObjectId(data.userId) : null,
     };
 
-    const observationInsert = await db
-      .collection("Observations")
-      .insertOne(observation);
-
-    if (!observationInsert.insertedId) {
-      throw new Error("Failed to create observation");
-    }
+    const result = await db.collection("Observations").insertOne(observation);
 
     return NextResponse.json(
-      { id: observationInsert.insertedId.toString() },
+      { id: result.insertedId.toString() },
       { status: 201 }
     );
-  } catch (error: any) {
-    if (error?.name === "ZodError") {
+  } catch (error: unknown) {
+    console.error("OBSERVATION POST ERROR:", error);
+
+    if (error instanceof ZodError) {
       return NextResponse.json({ errors: error.flatten() }, { status: 400 });
     }
 
-    console.error("OBSERVATION POST ERROR:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
 
-    return NextResponse.json(
-      { message: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message }, { status: 500 });
   }
 }
