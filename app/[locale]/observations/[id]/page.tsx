@@ -1,5 +1,5 @@
 import { getObservation } from "@/lib/fetch/observations";
-import { applyLocale, dayjs } from "@/lib/dayjs";
+import { applyLocale, dayjs } from "@/lib/dayjs.client";
 import ObservationDetailSection from "@/components/sections/observation-detail-section";
 
 type ObservationPageProps = {

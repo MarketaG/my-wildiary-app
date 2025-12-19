@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { dayjs, applyLocale } from "@/lib/dayjs";
+import { dayjs, applyLocale } from "@/lib/dayjs.client";
 import {
   Card,
   CardContent,

@@ -11,7 +11,7 @@ import { fetchAnimals } from "@/lib/fetch/animals";
 import type { AnimalOption, User } from "@/lib/types";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import { getNowForInput } from "@/lib/dayjs";
+import { getNowForInput } from "@/lib/dayjs.client";
 
 type AddObservationForm = {
   onSuccess: () => void;
@@ -42,6 +42,7 @@ export function AddObservationForm({
   const [isCreatingAnimal, setIsCreatingAnimal] = useState(false);
   const [animals, setAnimals] = useState<AnimalOption[]>([]);
   const [loadingAnimals, setLoadingAnimals] = useState(true);
+  const [limitReached, setLimitReached] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -70,14 +71,23 @@ export function AddObservationForm({
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) {
-        const error = await res.json();
+      const result = await res.json();
 
-        if (error?.errors?.formErrors?.length) {
-          toast.error(error.errors.formErrors[0]);
-        } else {
-          toast.error("Failed to create observation");
+      if (!res.ok) {
+        // limit
+        if (res.status === 429) {
+          setLimitReached(true);
+
+          toast.error("Limit of observations has been reached");
+          return;
         }
+
+        if (result?.errors?.formErrors?.length) {
+          toast.error(result.errors.formErrors[0]);
+          return;
+        }
+
+        toast.error(result?.message ?? "Failed to create observation");
         return;
       }
 
@@ -323,7 +333,11 @@ export function AddObservationForm({
       </div>
 
       <div className="flex gap-2 pt-4">
-        <Button type="submit" className="flex-1 cursor-pointer">
+        <Button
+          type="submit"
+          className="flex-1 cursor-pointer"
+          disabled={limitReached}
+        >
           {t("add-observation")}
         </Button>
         <Button className="cursor-pointer" variant="outline" onClick={onClose}>
