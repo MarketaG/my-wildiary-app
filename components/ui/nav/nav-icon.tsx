@@ -15,7 +15,7 @@ export default function NavIcon({
 }: NavIconProps) {
   const iconElement = (
     <span className="flex items-center justify-center h-full w-full">
-      <Icon className="h-6 w-6 text-text icon-neon" />
+      <Icon className="h-6 w-6 text-text" />
     </span>
   );
 

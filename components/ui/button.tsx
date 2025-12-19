@@ -32,9 +32,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const variantClasses: Record<Variant, string> = {
-      default: "bg-primary text-text hover:bg-primary/90",
+      default: "bg-emerald-800 text-text hover:bg-emerald-800/90",
       destructive:
-        "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        "bg-transparent text-destructive-foreground hover:bg-destructive/90",
       outline:
         "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",

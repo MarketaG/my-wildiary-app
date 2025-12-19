@@ -31,5 +31,34 @@
     "sign-in": "Sign In",
     "label": "Sign in to access your account"
   },
-  "welcome": { "title": "My Wildiary App/en" }
+  "welcome": { "title": "My Wildiary App/en" },
+  "home": {
+    "main-title": "Add New Observation",
+    "main-subtitle": "Add details about the animal you observed, where it was seen, and the environmental conditions during the observation.",
+    "search": "Search observations…",
+    "create-observation": "Create Observation",
+    "title": "Title",
+    "description": "Description",
+    "animal": "Animal",
+    "loading-animals": "Loading animals...",
+    "select-animal": "Select animal",
+    "create-new-animal": "+ Create new animal",
+    "new-animal": "New animal",
+    "create-new-plus": "+ Create new animal",
+    "species-eg": "Species (e.g. Vulpes vulpes)",
+    "common-name": "Common name",
+    "diet": "Diet",
+    "conservation-status": "Conservation status",
+    "cancel": "Cancel",
+    "observer": "Observer",
+    "select-user": "Select user",
+    "habitat": "Habitat",
+    "habitat-eg": "e.g., Mountain Forest",
+    "weather": "Weather",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "observation-date": "Observation date & time",
+    "image-url": "Image URL",
+    "add-observation": "Add Observation"
+  }
 }

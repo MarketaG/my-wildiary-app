@@ -31,5 +31,35 @@
     "sign-in": "Přihlaste se",
     "label": "Přihlaste se pro přístup ke svému účtu"
   },
-  "welcome": { "title": "My Wildiary App/cs" }
+  "welcome": { "title": "My Wildiary App/cs" },
+
+  "home": {
+    "main-title": "Přidat nové pozorování",
+    "main-subtitle": "Zadejte podrobnosti o zvířeti, které jste pozorovali, kde bylo spatřeno a o podmínkách prostředí během pozorování.",
+    "search": "Hledat pozorování…",
+    "create-observation": "Vytvořit pozorování",
+    "title": "Název",
+    "description": "Popis",
+    "animal": "Zvíře",
+    "loading-animals": "Načítání zvířat...",
+    "select-animal": "Vyberte zvíře",
+    "create-new-animal": "+ Přidat nové zvíře",
+    "new-animal": "Nové zvíře",
+    "create-new-plus": "+ Přidat nové zvíře",
+    "species-eg": "Druh (např. Vulpes vulpes)",
+    "common-name": "Běžný název",
+    "diet": "Strava",
+    "conservation-status": "Stav ochrany",
+    "cancel": "Zrušit",
+    "observer": "Pozorovatel",
+    "select-user": "Vyberte uživatele",
+    "habitat": "Prostředí",
+    "habitat-eg": "např., Mountain Forest",
+    "weather": "Počasí",
+    "latitude": "Zeměpisná šířka",
+    "longitude": "Zeměpisná délka",
+    "observation-date": "Datum a čas pozorování",
+    "image-url": "URL obrázku",
+    "add-observation": "Přidat pozorování"
+  }
 }

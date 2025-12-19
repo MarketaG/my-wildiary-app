@@ -79,7 +79,7 @@ export default function ObservationDetailSection({
           <Card className="md:col-span-2 border-stone-200/60 overflow-hidden nature-shadow-lg">
             <CardContent className="p-0">
               <Image
-                src={observation.image_url || "/default.png"}
+                src={observation.imageUrl || "/default.png"}
                 width={500}
                 height={500}
                 alt={observation.animal?.commonName || "Observation image"}
@@ -88,7 +88,7 @@ export default function ObservationDetailSection({
             </CardContent>
           </Card>
 
-          <Card className="border-stone-200/60 bg-white nature-shadow">
+          <Card className="border-stone-200/60 bg-card nature-shadow">
             <CardHeader className="border-b border-stone-200/40">
               <CardTitle className="text-stone-800">
                 Observation Details
@@ -102,7 +102,7 @@ export default function ObservationDetailSection({
                 <div>
                   <p className="text-sm text-stone-500">Date</p>
                   <p className="font-semibold text-stone-800">
-                    {observation.created_at}
+                    {observation.createdAt}
                   </p>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function ObservationDetailSection({
             </CardContent>
           </Card>
 
-          <Card className="border-stone-200/60 bg-white nature-shadow">
+          <Card className="border-stone-200/60 bg-card nature-shadow">
             <CardHeader className="border-b border-stone-200/40">
               <CardTitle className="text-stone-800">
                 Environmental Conditions
@@ -191,7 +191,7 @@ export default function ObservationDetailSection({
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2 border-stone-200/60 bg-gradient-to-br from-white to-stone-50/50 nature-shadow">
+          <Card className="md:col-span-2 border-stone-200/60 bg-gradient-to-br bg-card nature-shadow">
             <CardHeader className="border-b border-stone-200/40">
               <CardTitle className="text-stone-800">Description</CardTitle>
             </CardHeader>
@@ -202,7 +202,7 @@ export default function ObservationDetailSection({
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2 border-stone-200/60 bg-gradient-to-br from-green-50 to-emerald-50/50 nature-shadow">
+          <Card className="md:col-span-2 border-stone-200/60 bg-gradient-to-br bg-white nature-shadow">
             <CardContent className="pt-6">
               <Link href={`/?observation=${observation._id}`}>
                 <Button

@@ -49,9 +49,9 @@ export default function ObservationListSection({
         </CardHeader>
 
         <CardContent>
-          {observation.image_url && (
+          {observation.imageUrl && (
             <Image
-              src={observation.image_url}
+              src={observation.imageUrl}
               alt={observation.title}
               className="w-full h-48 object-cover rounded-md mb-4"
             />
@@ -75,7 +75,7 @@ export default function ObservationListSection({
 
             <div className="flex items-center gap-1">
               <CalendarDaysIcon className="h-4 w-4" />
-              <span>{dayjs(observation.created_at).format("LL")}</span>
+              <span>{dayjs(observation.createdAt).format("LL")}</span>
             </div>
           </div>
         </CardContent>

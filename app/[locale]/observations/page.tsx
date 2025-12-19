@@ -1,4 +1,4 @@
-import { getObservations } from "@/lib/actions";
+import { getObservations } from "@/lib/fetch/observations";
 import ObservationListSection from "@/components/sections/observations-list-section";
 
 type ObservationPageProps = {

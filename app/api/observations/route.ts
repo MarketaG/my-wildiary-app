@@ -1,6 +1,9 @@
 export const runtime = "nodejs";
 
+import { NextResponse } from "next/server";
 import clientPromise from "@/db/mongodb";
+import { ObjectId } from "mongodb";
+import { contactFormSchema } from "@/lib/validation/contactForm.schema";
 
 export async function GET() {
   try {
@@ -66,5 +69,78 @@ export async function GET() {
     return new Response(JSON.stringify({ success: false, error: message }), {
       status: 500,
     });
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+
+    const data = contactFormSchema.parse(body);
+
+    const client = await clientPromise;
+    const db = client.db("mydatabase");
+
+    let animalId: ObjectId;
+
+    if (data.newAnimal) {
+      const animalInsert = await db.collection("Animals").insertOne({
+        species: data.newAnimal.species,
+        commonName: data.newAnimal.commonName,
+        diet: data.newAnimal.diet ?? null,
+        conservationStatus: data.newAnimal.conservationStatus ?? null,
+      });
+
+      if (!animalInsert.insertedId) {
+        throw new Error("Failed to create animal");
+      }
+
+      animalId = animalInsert.insertedId;
+    } else if (data.animalId) {
+      animalId = new ObjectId(data.animalId);
+    } else {
+      return NextResponse.json(
+        { message: "Animal is required" },
+        { status: 400 }
+      );
+    }
+
+    const observation = {
+      title: data.title ?? null,
+      description: data.description ?? null,
+      habitat: data.habitat,
+      weather: data.weather,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      imageUrl: data.imageUrl ?? null,
+      createdAt: new Date(data.date),
+
+      animalId,
+      userId: data.userId ? new ObjectId(data.userId) : null,
+    };
+
+    const observationInsert = await db
+      .collection("Observations")
+      .insertOne(observation);
+
+    if (!observationInsert.insertedId) {
+      throw new Error("Failed to create observation");
+    }
+
+    return NextResponse.json(
+      { id: observationInsert.insertedId.toString() },
+      { status: 201 }
+    );
+  } catch (error: any) {
+    if (error?.name === "ZodError") {
+      return NextResponse.json({ errors: error.flatten() }, { status: 400 });
+    }
+
+    console.error("OBSERVATION POST ERROR:", error);
+
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

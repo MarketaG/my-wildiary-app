@@ -1,4 +1,4 @@
-import { getObservation } from "@/lib/actions";
+import { getObservation } from "@/lib/fetch/observations";
 import { applyLocale, dayjs } from "@/lib/dayjs";
 import ObservationDetailSection from "@/components/sections/observation-detail-section";
 
@@ -24,7 +24,7 @@ export default async function OneObservationPage({
 
   const formattedObservation = {
     ...observation,
-    created_at: dayjs(observation.created_at).format("LL"),
+    createdAt: dayjs(observation.createdAt).format("LL"),
   };
 
   return <ObservationDetailSection observation={formattedObservation} />;

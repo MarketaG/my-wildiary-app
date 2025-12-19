@@ -1,4 +1,4 @@
-import { getMinimalObservations } from "@/lib/actions";
+import { getMinimalObservations } from "@/lib/fetch/observations";
 import HomeSection from "@/components/sections/home-section";
 /**
  * HOME PAGE

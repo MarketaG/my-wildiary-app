@@ -17,7 +17,7 @@ export default function NavLink({
       aria-current={active ? "page" : undefined}
       className={cn(
         "px-3 py-2 rounded-md cursor-pointer font-medium relative",
-        active ? "text-emerald-200 font-bold" : "text-muted-foreground",
+        active ? "text-emerald-200 font-bold" : "text-accent-foreground",
         className
       )}
     >

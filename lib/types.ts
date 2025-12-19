@@ -50,8 +50,8 @@ export type Observation = {
   description: string;
   habitat?: string;
   weather?: string;
-  created_at: string;
-  image_url?: string;
+  createdAt: string;
+  imageUrl?: string;
   latitude: number;
   longitude: number;
   animal?: {
@@ -71,8 +71,20 @@ export type MinimalObservation = {
   description: string;
   coords: [number, number];
   animal: {
+    _id: string;
     commonName: string;
   };
+};
+
+export type AnimalOption = {
+  _id: string;
+  commonName: string;
+  species: string;
+};
+
+export type User = {
+  _id: string;
+  name: string;
 };
 
 /**
